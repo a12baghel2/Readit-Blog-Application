@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Article = require('./models/articles');
 require('dotenv/config');
 const articleRouter = require('./routes/articles');
+const authRoute = require('./routes/auth');
 const methodOverride = require('method-override');
 
 // Initialise express
@@ -22,12 +23,14 @@ mongoose.connect(process.env.DB_CONNECTION, {
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Method overriding
 app.use(methodOverride("_method"));
 
 //Routes middleware
 app.use('/articles', articleRouter);
+app.use('/user', authRoute);
 
 //Routes
 app.get('/', async (req,res) => {
