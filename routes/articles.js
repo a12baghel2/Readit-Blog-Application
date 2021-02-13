@@ -9,12 +9,6 @@ route.get('/new', (req,res) => {
     res.render('articles/new', { article: new Article() })
 });
 
-// Default route
-route.post('/', async (req, res, next) => {
-    req.article = new Article();
-    next();
-}, saveArticleAndRedirect('new'));
-
 // Route to edit specific article
 route.get('/edit/:id', async (req, res) =>{
     const article = await Article.findById(req.params.id);
@@ -28,16 +22,22 @@ route.get('/:slug', async (req,res) => {
     res.render('articles/show', {article: article })
 });
 
+// Default route
+route.post('/', async (req, res, next) => {
+    req.article = new Article();
+    next();
+}, saveArticleAndRedirect('new'));
+
 // Route to update edited specific article
 route.put('/:id' , async (req,res, next) =>{
-    await Article.findById(req.params.id);
+    req.article = await Article.findById(req.params.id);
     next();
 }, saveArticleAndRedirect('edit'));
 
 // Route to delete specific post/article
-route.delete('/:id', async (req,res)=>{
+route.delete('/:id', async (req,res) => {
     await Article.findByIdAndDelete(req.params.id);
-    res.redirect("/");
+    res.redirect('/');
 })
 
 // Function to save article in database 
