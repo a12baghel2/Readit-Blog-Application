@@ -8,6 +8,10 @@ const jwt = require('jsonwebtoken');
 const { registerValidation, loginValidation } = require('../validation');
 
 // Register route
+router.get('/register', (req,res) => {
+    res.render('user/register');
+})
+
 router.post('/register', async (req,res) => {
     
     // Validation of the data
@@ -32,7 +36,7 @@ router.post('/register', async (req,res) => {
     // Saving User in the database
     try {
         const savedUser = await user.save();
-        res.send(savedUser);
+        res.redirect('/');
     } catch (err) {
         res.status(400).send(err);
     }
@@ -40,7 +44,7 @@ router.post('/register', async (req,res) => {
 
 // Login route
 router.get('/login', (req,res) => {
-    res.render('articles/login');
+    res.render('user/login');
 })
 
 router.post('/login', async (req,res) => {

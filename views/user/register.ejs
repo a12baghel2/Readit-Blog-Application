@@ -9,9 +9,13 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Login</h1>
+        <h1 class="mb-4">Register</h1>
 
-        <form action="/user/login" method="POST">
+        <form action="/user/register?_method=POST" method="POST">
+            <div class="from-group">
+                <label for="name">Name</label>
+                <input required type="text" name="name" id="name" class="form-control">
+            </div>
             <div class="from-group">
                 <label for="E-mail">E-mail</label>
                 <input required type="email" name="email" id="email" class="form-control">
@@ -20,8 +24,9 @@
                 <label for="password">Password</label>
                 <input required type="password" name="password" id="password" class="form-control">
             </div>
-            <a href="/user/register" class="btn btn-secondary">Register</a>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <br>
+            <a href="/user/login" class="btn btn-secondary">Login</a>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>
 </body>
