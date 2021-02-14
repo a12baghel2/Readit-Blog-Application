@@ -2,6 +2,7 @@
 const  express = require('express');
 const mongoose = require('mongoose');
 const Article = require('./models/articles');
+const User = require('./models/User.js');
 require('dotenv/config');
 const articleRouter = require('./routes/articles');
 const authRoute = require('./routes/auth');

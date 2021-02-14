@@ -5,13 +5,13 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 // Vlaidation imports
-const { registerVlaidation, loginValidation } = require('../validation');
+const { registerValidation, loginValidation } = require('../validation');
 
 // Register route
 router.post('/register', async (req,res) => {
     
     // Validation of the data
-    const { error } = registerVlaidation(req.body);
+    const { error } = registerValidation(req.body);
     if( error ) return res.status(400).send(error.details[0].message);
 
     // Checking if user already exist in the database
@@ -39,6 +39,10 @@ router.post('/register', async (req,res) => {
 });
 
 // Login route
+router.get('/login', (req,res) => {
+    res.render('articles/login');
+})
+
 router.post('/login', async (req,res) => {
 
     // Validation of the data
@@ -55,7 +59,7 @@ router.post('/login', async (req,res) => {
 
     // Creating a webtoken
     const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN);
-    res.header('auth_token', token).send(token);
+    res.redirect('/');
 });
 
 // Exporting the route
