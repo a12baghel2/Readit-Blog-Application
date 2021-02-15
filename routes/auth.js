@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 // Vlaidation imports
 const { registerValidation, loginValidation } = require('../validation');
+const { walkTokens } = require('marked');
 
 // Register route
 router.get('/register', (req,res) => {
@@ -63,7 +64,7 @@ router.post('/login', async (req,res) => {
 
     // Creating a webtoken
     const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN);
-    res.redirect('/');
+    res.header('auth_token',token).send(token);
 });
 
 // Exporting the route
