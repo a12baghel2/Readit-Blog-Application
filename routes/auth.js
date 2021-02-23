@@ -2,17 +2,20 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const passport = require('passport');
+
+const { forwardAuthenticated } = require('../isAuth');
 
 // Vlaidation imports
 const { registerValidation, loginValidation } = require('../validation');
-const { walkTokens } = require('marked');
 
-// Register route
-router.get('/register', (req,res) => {
+
+// Register page route 
+router.get('/register', forwardAuthenticated, (req,res) => {
     res.render('user/register');
 })
 
+// Register 
 router.post('/register', async (req,res) => {
     
     // Validation of the data
@@ -43,12 +46,21 @@ router.post('/register', async (req,res) => {
     }
 });
 
-// Login route
-router.get('/login', (req,res) => {
+// Login page route
+router.get('/login', forwardAuthenticated, (req,res) => {
     res.render('user/login');
 })
 
-router.post('/login', async (req,res) => {
+// Login
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/user/login",
+    failureFlash: true,
+  })(req, res, next);
+});
+
+/*router.post('/login', async (req,res) => {
 
     // Validation of the data
     const { error } = loginValidation(req.body);
@@ -65,7 +77,8 @@ router.post('/login', async (req,res) => {
     // Creating a webtoken
     const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN);
     res.header('auth_token',token).send(token);
-});
+});*/
 
 // Exporting the route
 module.exports = router;
+

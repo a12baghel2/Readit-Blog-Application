@@ -1,27 +1,27 @@
 // Imports
 const express = require('express');
 const Article = require('./../models/articles');
-const verify = require('./verifyToken');
+const { ensureAuthenticated, forwardAuthenticated } = require('../isAuth');
 
 const route = express.Router();
 
-// example route to test
-route.get("/random", verify, (req, res) => {
+// Test route for errors
+/*route.get("/random", ensureAuthenticated, (req, res) => {
   res.json({
     post: {
       title: "This is a post",
       description: "can't access without login",
     },
   });
-});
+});*/
 
 // Route to add new article
-route.get('/new',verify,(req,res) => {
+route.get('/new', ensureAuthenticated,(req,res) => {
     res.render('articles/new', { article: new Article() })
 });
 
 // Route to edit specific article
-route.get('/edit/:id', verify ,async (req, res) =>{
+route.get('/edit/:id', ensureAuthenticated , async (req, res) =>{
     const article = await Article.findById(req.params.id);
     res.render('articles/edit' , {article: article});
 });
