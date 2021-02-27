@@ -17,20 +17,28 @@ const route = express.Router();
 
 // Route to add new article
 route.get('/new', ensureAuthenticated,(req,res) => {
-    res.render('articles/new', { article: new Article() })
+    let name = req.user.name;
+    res.render('articles/new', { article: new Article(), name : name })
 });
 
 // Route to edit specific article
 route.get('/edit/:id', ensureAuthenticated , async (req, res) =>{
     const article = await Article.findById(req.params.id);
-    res.render('articles/edit' , {article: article});
+    let name = req.user.name;
+    res.render('articles/edit' , {article: article, name: name});
 });
 
 // Route to get the full article
 route.get('/:slug' , async (req,res) => {
     const article = await Article.findOne({ slug: req.params.slug});
     if(article == null) res.redirect('/');
-    res.render('articles/show', {article: article })
+    let name;
+    try {
+      name = req.user.name;
+    } catch (e) {
+      name = "Guest";
+    }
+    res.render('articles/show', {article: article, name : name })
 });
 
 // Default route
@@ -46,10 +54,10 @@ route.put('/:id' , async (req,res, next) =>{
 }, saveArticleAndRedirect('edit'));
 
 // Route to delete specific post/article
-route.delete('/:id', async (req,res) => {
-    await Article.findByIdAndDelete(req.params.id);
-    res.redirect('/');
-})
+route.delete("/:id", ensureAuthenticated , async (req, res) => {
+  await Article.findByIdAndDelete(req.params.id);
+  res.redirect("/");
+});
 
 // Function to save article in database 
 function saveArticleAndRedirect(path){
@@ -58,6 +66,7 @@ function saveArticleAndRedirect(path){
         article.title = req.body.title;
         article.description = req.body.description;
         article.markdown = req.body.markdown;
+        article.createdBy = req.user.name;
         try{
             article = await article.save();
             res.redirect(`/articles/${article.slug}`);

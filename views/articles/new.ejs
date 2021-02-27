@@ -9,6 +9,37 @@
     <title>New Article</title>
 </head>
 <body>
+    <!-- Navigattion -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
+    <div class="container">
+      <a href="/" class="navbar-brand">Read<i>it</i></a>
+      <button class="navbar-toggler navbar-toggle-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><span>Hello, <%= name%></span></a>
+          </li>
+          <% if(name !== "Guest") {%>
+            <li class="nav-item">
+            <form action="/user/logout?_method=DELETE" method="POST">
+              <button class="btn btn-outline-danger" type="submit">Log Out</button>
+            </form>
+            </li>
+           <% } else { %> 
+              <li class="nav-item">
+                <a href="/user/login" class="btn btn-outline-danger"><i class="fas fa-fingerprint"></i> Login</a>
+              </li>
+            <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
     <div class="container">
         <h1 class="mb-4">New Article</h1>
 

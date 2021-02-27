@@ -79,6 +79,12 @@ router.post("/login", (req, res, next) => {
     res.header('auth_token',token).send(token);
 });*/
 
+// Logout
+router.delete('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/')
+})
+
 // Exporting the route
 module.exports = router;
 

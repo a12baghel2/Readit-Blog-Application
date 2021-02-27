@@ -63,8 +63,16 @@ app.use('/user', authRoute);
 
 //Routes
 app.get('/', async (req,res) => {
-    const articles = await Article.find().sort({createdAt: 'desc'})
-    res.render('articles/index', { articles: articles });
+    const articles = await Article.find().sort({createdAt: 'desc'});
+    let name;
+    try{
+        name = req.user.name;
+    }catch(e){
+        name = "Guest"
+        console.log("cannot set this...")
+    }
+    //console.log(name);
+    res.render('articles/index', { articles: articles, name : name } );
 });
 
 // Simple test route
