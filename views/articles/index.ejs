@@ -20,15 +20,15 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a href="/" class="nav-link">Home</a>
+            <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><span>Hello, <%= name%></span></a>
+            <a href="#" class="nav-link"><span><i class="fas fa-user-alt"></i> Hello, <%= name%> </span></a>
           </li>
           <% if(name !== "Guest") {%>
             <li class="nav-item">
             <form action="/user/logout?_method=DELETE" method="POST">
-              <button class="btn btn-outline-danger" type="submit">Log Out</button>
+              <button class="btn btn-outline-danger" type="submit"><i class="fas fa-sign-out-alt"></i> Log Out</button>
             </form>
             </li>
            <% } else { %> 
@@ -53,7 +53,7 @@
           <div class="card-body">
             <h3 class="card-title"><%= article.title %></h4>
             <div class="card-subtitle text-muted mb-2">
-              posted by: <i style="color: crimson; font-weight: bold;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
+              posted by: <i style="color: grey; font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
             </div>
             <div class="card-text mb-2"><%= article.description %></div>
             <a href="articles/<%= article.slug %>" class="btn btn-outline-primary"><i class="fas fa-book-open"></i> Read More</a>
