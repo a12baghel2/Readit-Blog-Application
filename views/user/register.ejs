@@ -9,6 +9,24 @@
     <title>Login</title>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
+        <div class="container">
+            <a href="/" class="navbar-brand">Read<i>it</i></a>
+            <button class="navbar-toggler navbar-toggle-right" type="button"data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggle-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Register Form -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
@@ -16,16 +34,18 @@
 
             <form action="/user/register?_method=POST" method="POST">
                 <div class="from-group">
-                    <label for="name">Name</label>
-                    <input required type="text" name="name" id="name" class="form-control">
+                    <label for="name"><i class="fas fa-user-circle"></i> Name</label>
+                    <input required type="text" placeholder="Enter your name" name="name" id="name" class="form-control">
                 </div>
+                <br>
                 <div class="from-group">
-                    <label for="E-mail">E-mail</label>
-                    <input required type="email" name="email" id="email" class="form-control">
+                    <label for="E-mail"><i class="fas fa-envelope"></i> E-mail</label>
+                    <input required type="email" placeholder="Enter your e-mail" name="email" id="email" class="form-control">
                 </div>
+                <br>
                 <div class="from-group">
-                    <label for="password">Password</label>
-                    <input required type="password" name="password" id="password" class="form-control">
+                    <label for="password"><i class="fas fa-key"></i> Password</label>
+                    <input required type="password" placeholder="Enter password" name="password" id="password" class="form-control">
                 </div>
                 <br>
                 <a href="/user/login" class="btn btn-secondary"><i class="fas fa-fingerprint"></i> Login</a>
