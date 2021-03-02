@@ -1,6 +1,7 @@
 // Imports
 const router = require('express').Router();
 const User = require('../models/User');
+const Article = require('../models/articles');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
@@ -12,7 +13,7 @@ const { registerValidation, loginValidation } = require('../validation');
 
 // Register page route 
 router.get('/register', forwardAuthenticated, (req,res) => {
-    res.render('user/register');
+    res.render('user/register',{error: ""});
 })
 
 // Register 
@@ -20,11 +21,15 @@ router.post('/register', async (req,res) => {
     
     // Validation of the data
     const { error } = registerValidation(req.body);
-    if( error ) return res.status(400).send(error.details[0].message);
+    if( error ) return res.status(400).render('user/register', {error : error.details[0].message} );
 
     // Checking if user already exist in the database
     const existUser = await User.findOne({email: req.body.email});
-    if(existUser) return res.status(400).send("User already exist");
+    if(existUser) return res.status(400).render('user/register',{error : "User already exist" });
+
+    // Checking if the username exist or not in the database
+    const existUsername = await User.findOne({username : req.body.username});
+    if (existUsername) return res.status(400).render('user/register', {error : "Username already exist"});
 
     // Hashing the password
     const salt = await bcrypt.genSalt(10);
@@ -33,6 +38,7 @@ router.post('/register', async (req,res) => {
     // Creating New User 
     const user = new User({
         name: req.body.name,
+        username: req.body.username,
         email: req.body.email,
         password: HashedPassword,
     });
@@ -59,6 +65,7 @@ router.post("/login", (req, res, next) => {
     failureFlash: true,
   })(req, res, next);
 });
+
 
 /*router.post('/login', async (req,res) => {
 
