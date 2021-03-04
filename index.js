@@ -12,6 +12,7 @@ const User = require('./models/User.js');
 require('dotenv/config');
 const articleRouter = require('./routes/articles');
 const authRoute = require('./routes/auth');
+const profileRoute = require('./routes/profile');
 
 // Initialise express
 const app = express();
@@ -60,6 +61,7 @@ app.use(methodOverride("_method"));
 //Routes middleware
 app.use('/articles', articleRouter);
 app.use('/user', authRoute);
+app.use('/profile', profileRoute);
 
 //Routes
 app.get('/', async (req,res) => {

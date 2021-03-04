@@ -24,7 +24,7 @@
             <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
           </li>
           <li class="nav-item">
-              <a href="#" class="nav-link"><span><i class="fas fa-user-alt"></i> Hello, <%= name%> </span></a>
+              <a href="profile/<%= name%>" class="nav-link"><span><i class="fas fa-user-alt"></i> Hello, <%= name%> </span></a>
             </li>
           <% if(name !== "Guest") {%>
             <li class="nav-item">
@@ -54,7 +54,7 @@
           <div class="card-body">
             <h3 class="card-title"><%= article.title %></h4>
             <div class="card-subtitle text-muted mb-2">
-              posted by: <i style="color: grey; font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
+              posted by: <i style="color: rgb(180, 175, 175); font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
             </div>
             <div class="card-text mb-2"><%= article.description %></div>
             <a href="articles/<%= article.slug %>" class="btn btn-outline-primary"><i class="fas fa-book-open"></i> Read More</a>
@@ -69,8 +69,8 @@
     </div>
   </div>
     <!-- Footer -->
-    <footer>
-        <div class="container mt-5">
+    <footer class="bg-dark text-center text-white text-lg-start">
+        <div class="container mt-5 p-3">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <ul class="list-inline text-center">

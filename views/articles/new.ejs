@@ -21,20 +21,14 @@
           <li class="nav-item active">
             <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><span><i class="fas fa-user-alt"></i> Hello, <%= name%></span></a>
-          </li>
-          <% if(name !== "Guest") {%>
+          <!--<li class="nav-item">
+            <a href="profile/<%= name%>" class="nav-link"><span><i class="fas fa-user-alt"></i> Hello, <%= name%></span></a>
+          </li>-->
             <li class="nav-item">
             <form action="/user/logout?_method=DELETE" method="POST">
               <button class="btn btn-outline-danger" type="submit"><i class="fas fa-sign-out-alt"></i> Log Out</button>
             </form>
             </li>
-           <% } else { %> 
-              <li class="nav-item">
-                <a href="/user/login" class="btn btn-outline-danger"><i class="fas fa-fingerprint"></i> Login</a>
-              </li>
-            <% } %>
         </ul>
       </div>
     </div>
