@@ -54,7 +54,7 @@
           <div class="card-body">
             <h3 class="card-title"><%= article.title %></h4>
             <div class="card-subtitle text-muted mb-2">
-              posted by: <i style="color: grey; font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
+              posted by: <i style="color: rgb(180, 175, 175); font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
             </div>
             <div class="card-text mb-2"><%= article.description %></div>
             <a href="articles/<%= article.slug %>" class="btn btn-outline-primary"><i class="fas fa-book-open"></i> Read More</a>
