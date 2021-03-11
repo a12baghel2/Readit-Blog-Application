@@ -55,7 +55,10 @@ route.put('/:id' , async (req,res, next) =>{
 
 // Route to delete specific post/article
 route.delete("/:id", ensureAuthenticated , async (req, res) => {
-  await Article.findByIdAndDelete(req.params.id);
+  const article = await Article.findById(req.params.id);
+  if(req.user.username === article.createdBy){
+    await Article.findByIdAndDelete(req.params.id);
+  }
   res.redirect("/");
 });
 

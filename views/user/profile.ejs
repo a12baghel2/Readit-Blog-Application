@@ -39,7 +39,7 @@
     <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <h1 class="display-4 mb-4">Blog Articles</h1>
+        <h1 class="display-4 mb-4">Your Articles</h1>
         <a href="/articles/new" class="btn btn-outline-success"><i class="fas fa-file"></i> New Article</a>
 
         <% articles.forEach(article => { %>
@@ -50,8 +50,8 @@
               posted by: <i style="color: grey; font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
             </div>
             <div class="card-text mb-2"><%= article.description %></div>
-            <a href="articles/<%= article.slug %>" class="btn btn-outline-primary"><i class="fas fa-book-open"></i> Read More</a>
-            <a href="articles/edit/<%= article.id %>" class="btn btn-outline-info"><i class="fas fa-edit"></i> Edit</a>
+            <a href="/articles/<%= article.slug %>" class="btn btn-outline-primary"><i class="fas fa-book-open"></i> Read More</a>
+            <a href="/articles/edit/<%= article.id %>" class="btn btn-outline-info"><i class="fas fa-edit"></i> Edit</a>
             <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
               <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</button>
             </form>

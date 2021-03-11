@@ -71,7 +71,7 @@ app.get('/', async (req,res) => {
         name = req.user.name;
     }catch(e){
         name = "Guest"
-        console.log("cannot set this...")
+        //console.log("cannot set this...")
     }
     //console.log(name);
     res.render('articles/index', { articles: articles, name : name } );
