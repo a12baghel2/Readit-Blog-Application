@@ -11,7 +11,7 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
  - Simple Blog Platform 
  - Uses Markdown
  
- ## Dependecy
+ ## Dependencies
   - Node.js - `v12.10.0`
   - Express - `v4.17.1`
   - Passport - `v0.4.1`
