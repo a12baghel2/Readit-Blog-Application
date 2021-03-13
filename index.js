@@ -1,3 +1,5 @@
+const port = process.env.PORT || 5000;
+
 // Imports
 const  express = require('express');
 const mongoose = require('mongoose');
@@ -82,6 +84,6 @@ app.get('/', async (req,res) => {
     res.send(`hello ${req.params.name}`);
 });*/
 
-app.listen(5000, () => {
-    console.log("server started pooling 5000....");
+app.listen(port, () => {
+    console.log(`server started pooling at port ${port}`);
 });
