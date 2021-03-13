@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
-<body>
+<body style="background: url('https://source.unsplash.com/szdLIq0cTwI/1366x768')">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
         <div class="container">
@@ -29,12 +29,12 @@
         </div>
     </nav>
     <!-- Register Form -->
-    <div class="container">
+    <div class="container p-5 text-center shadow-1-strong rounded mb-5 text-white">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-8 col-md-10 mx-auto" style="backdrop-filter: blur(10px);">
                 <h1 class="mb-4">Register</h1>
                 <span class="display-6 text-center" style="color: red;">* <%= error %></span>
-            <form action="/user/register?_method=POST" method="POST">
+            <form action="/user/register?_method=POST" method="POST" class="mb-4">
                 <div class="from-group">
                     <label for="name"><i class="fas fa-user-circle"></i> Name</label>
                     <input required type="text" placeholder="Enter your name" name="name" id="name" class="form-control">
@@ -62,39 +62,10 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer>
-        <div class="container mt-5">
+  <footer class="bg-dark text-center text-white text-lg-start mt-2" style="bottom: 0;width: 100%;">
+        <div class="container mt-3">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">
-                            <span class="display-6" style="font-weight: bold;">Connect with me:-  </span>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    </ul>
                     <p class="copyright text-center text-muted">Copyright &copy; Abhimanyu 2021</p>
                 </div>
             </div>

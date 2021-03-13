@@ -10,9 +10,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Home</title>
 </head>
-<body>
+<body style="background-image: url('https://source.unsplash.com/AWtfHYmRCP8/1366x768');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  ">
   <!-- Navigattion -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
       <a href="/" class="navbar-brand">Read<i>it</i></a>
       <button class="navbar-toggler navbar-toggle-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,11 +48,11 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="container">
+  <div class="container mt-4 p-5" style="backdrop-filter: blur(5px);">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <h1 class="display-4 mb-4">Feed</h1>
-        <a href="/articles/new" class="btn btn-outline-success"><i class="fas fa-file"></i> New Article</a>
+      <div class="col-lg-8 col-md-10 mx-auto mb-4">
+        <h1 class="display-4 mb-4 text-white">Feed</h1>
+        <a href="/articles/new" class="btn btn-success"><i class="fas fa-file"></i> New Article</a>
 
         <% articles.forEach(article => { %>
         <div class="card mt-4">
@@ -65,40 +70,11 @@
     </div>
   </div>
   <!-- Footer -->
-    <footer class="bg-dark text-center text-white text-lg-start">
-        <div class="container mt-5 p-3">
+  <footer class="bg-dark text-center text-white text-lg-start mt-2" style="bottom: 0;width: 100%;">
+        <div class="container mt-3">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">
-                            <span class="display-6" style="font-weight: bold;">Connect with me:-  </span>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-center text-muted">Copyright &copy; Abhimanyu 2021</p>
+                    <p class="copyright text-center text-white">Copyright &copy; Abhimanyu 2021</p>
                 </div>
             </div>
         </div>
