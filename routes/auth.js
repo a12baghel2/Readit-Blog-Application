@@ -46,7 +46,7 @@ router.post('/register', async (req,res) => {
     // Saving User in the database
     try {
         const savedUser = await user.save();
-        res.redirect('/');
+        res.redirect('/user/login');
     } catch (err) {
         res.status(400).send(err);
     }

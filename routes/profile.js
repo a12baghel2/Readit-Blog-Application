@@ -6,6 +6,7 @@ const { ensureAuthenticated, forwadAuthenticated } = require('../isAuth');
 
 const route = express.Router();
 
+// User profile route
 route.get('/:name', ensureAuthenticated, async (req,res) => {
     const articles = await Article.find({createdBy : req.user.username}).sort({createdAt: 'desc'});
     res.render('user/profile', { articles: articles , name: req.params.name});
