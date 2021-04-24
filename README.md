@@ -24,6 +24,7 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
   ## Development 
   To run in your local dev environment, do this
   ```shell
+   git clone https://github.com/a12baghel2/Readit-Blog-Application.git
    npm i
    npm start
    ```
