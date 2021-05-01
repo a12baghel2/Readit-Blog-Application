@@ -11,6 +11,7 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
  - Simple Blog Platform 
  - Uses Markdown
  
+ ---
  ## Dependencies
   - Node.js - `v12.10.0`
   - Express - `v4.17.1`
@@ -19,8 +20,9 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
   - Ejs - `v3.1.6`
   - bcryptjs - `v2.4.3`
   - @hapi/joi - `v17.1.1`
-  
-  
+
+  ---
+
   ## Development 
   To run in your local dev environment, do this
   ```shell
