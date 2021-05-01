@@ -19,6 +19,9 @@ const profileRoute = require('./routes/profile');
 // Initialise express
 const app = express();
 
+//Static files
+app.use('/static', express.static('public'));
+
 // Passport config
 require('./passport-config')(passport);
 
