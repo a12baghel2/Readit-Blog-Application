@@ -84,6 +84,7 @@ header {
   background-attachment: fixed;
   background-size: cover;
   color: white;
+  scroll-behavior: smooth;
 }
 
 .welcome .container {
@@ -91,24 +92,6 @@ header {
   margin-top: 15%;
   width: 50%;
 }
-
-.container .display-6 {
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-}
-
-.display-1 {
-  font-size: 100px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-.explore .display-1 {
-  margin-top: 25px;
-  margin-left: 30px;
-}
-
 .wrapper {
   height: 50vh;
   display: -webkit-box;
@@ -123,11 +106,11 @@ header {
 }
 
 .typing {
-  width: 53ch;
+  width: 28ch;
   -webkit-animation: typing 2s steps(52), blink 0.8s step-end infinite alternate;
           animation: typing 2s steps(52), blink 0.8s step-end infinite alternate;
   white-space: nowrap;
-  border-right: 8px solid;
+  border-right: 5px solid;
   overflow: hidden;
 }
 
@@ -163,7 +146,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   -webkit-box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
           box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.6%;
@@ -340,6 +323,12 @@ header {
   left: 0%;
 }
 
+@media (max-width:640px){
+  .blog-card:hover{
+    transform: scale(1);
+  }
+}
+
 @media (min-width: 640px) {
   .blog-card {
     -webkit-box-orient: horizontal;
@@ -347,6 +336,9 @@ header {
         -ms-flex-direction: row;
             flex-direction: row;
     max-width: 700px;
+  }
+  .blog-card:hover{
+    transform: scale(1.1);
   }
   .blog-card .meta {
     -ms-flex-preferred-size: 40%;
@@ -431,7 +423,7 @@ footer .container {
 }
 
 .social-icons a {
-  background-color: #eceeef;
+  background-color: #1a1a1a;
   color: #818a91;
   font-size: 16px;
   display: inline-block;
@@ -469,6 +461,9 @@ footer .container {
 }
 
 @media (max-width: 767px) {
+  footer{
+    margin-bottom: 0px;
+  }
   .social-icons li.title {
     display: block;
     margin-right: 0;
@@ -510,7 +505,7 @@ footer .container {
     <section class="welcome" id="welcome">
         <div class="container">
             <span class="display-6">Hello!! Welcome to</span>
-            <h1 class="display-1">Read<i>it</i> Blog</h1>
+            <h1 class="display-2">Read<i>it</i> Blog</h1>
             <span class="display-6">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                  there live the blind texts.
                  Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</span>
@@ -522,7 +517,7 @@ footer .container {
 <section class="explore" id="explore">
         <div class="wrapper">
             <div class="typing">
-                <h1 class="display-1">#explore</h1>
+                <h1 class="display-4">#explore</h1>
             </div>
         </div>
         <% articles.forEach(article => {%>
@@ -542,20 +537,19 @@ footer .container {
         </div>
         <% }) %>
 </section>
-  <!-- Footer -->
-  <footer class="site-footer">
+  <!--Footer-->
+    <footer class="site-footer">
         <div class="container">
             <span class="display-1">Read<i>it</i></span>
             <span class="display-6">Read<i>it</i> is a blogging site. You can write your articles in mardown</span>
-            <hr>
             <span class="display-6">Copyright &copy; All rights reserved</span>
             <span class="display-6">Designed by Abhimanyu with &hearts;</span>
-            <div class="social-links">
+            <div class="social-links mt-4">
                 <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a class="dribbble" href="#"><i class="fab fa-github"></i></a></li>
-                    <li><a class="linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>   
+                    <li><a class="facebook" href="https://instagram.com/abhimanyuuu_____"><i class="fab fa-instagram"></i></a></li>
+                    <li><a class="twitter" href="https://twitter.com/a12baghel2"><i class="fab fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="https://github.com/a12baghel2"><i class="fab fa-github"></i></a></li>
+                    <li><a class="linkedin" href="https://www.linkedin.com/in/abhimanyu-baghel/"><i class="fab fa-linkedin"></i></a></li>   
                 </ul>
             </div>
         </div>
