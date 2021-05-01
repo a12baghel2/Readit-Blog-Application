@@ -11,8 +11,7 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
  - Simple Blog Platform 
  - Uses Markdown
  
- ---
- ## Dependencies
+## Dependencies
   - Node.js - `v12.10.0`
   - Express - `v4.17.1`
   - Passport - `v0.4.1`
@@ -21,12 +20,10 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
   - bcryptjs - `v2.4.3`
   - @hapi/joi - `v17.1.1`
 
-  ---
-
-  ## Development 
-  To run in your local dev environment, do this
+## Development 
+To run in your local dev environment, do this
   ```shell
    git clone https://github.com/a12baghel2/Readit-Blog-Application.git
    npm i
    npm start
-   ```
+  ```
