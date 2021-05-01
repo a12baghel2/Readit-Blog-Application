@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+# Read _it_ :- A mardown blog website with user authentication
 
-You can use the [editor on GitHub](https://github.com/a12baghel2/Readit-Blog-Application/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+---
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Description
 
-### Markdown
+Read _it_ is a simple markdown blog application where you can write blog using markdown. The user interface is simple to use. You can write, edit and delete an article.
+The backend is written in **Express** and the database used is **mongoDB**. **MongoDB** is a *NoSQL* database and **Express** is very popular in writing the web backend. And the template engine used for rendering the views is **ejs**. For the user authentication and authorization this application uses **Passport.js**, a popular middleware for this. The styling is done using **Bootstrap**. This project uses **bcrypt.js** for password encryption and **hapi/joi** for input validation so that inputs are correctly entered.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/a12baghel2/Readit-Blog-Application/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Features
+ - Simple Blog Platform 
+ - Uses Markdown
+ 
+ ## Dependencies
+  - Node.js - `v12.10.0`
+  - Express - `v4.17.1`
+  - Passport - `v0.4.1`
+  - Mongoose - `v5.11.15`
+  - Ejs - `v3.1.6`
+  - bcryptjs - `v2.4.3`
+  - @hapi/joi - `v17.1.1`
+  
+  
+  ## Development 
+  To run in your local dev environment, do this
+  ```shell
+   git clone https://github.com/a12baghel2/Readit-Blog-Application.git
+   npm i
+   npm start
+   ```
