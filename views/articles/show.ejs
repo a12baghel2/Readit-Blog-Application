@@ -142,8 +142,7 @@ footer .container {
               posted by: <i style="color: grey; font-weight: 500;"><%= article.createdBy %></i>  at <%= article.createdAt.toLocaleDateString() %>
           </div>
           <a href="/" class="btn btn-outline-secondary"><i class="fas fa-list"></i> All Articles</a>
-          <a href="/articles/edit/<%= article.id%>" class="btn btn-outline-info"><i class="fas fa-edit"></i> Edit</a>
-
+          <%if(name === article.createdBy){%><a href="/articles/edit/<%= article.id%>" class="btn btn-outline-info"><i class="fas fa-edit"></i> Edit</a><%}%>
           <div class="mt-4">
             <%- article.sanitizedHTML %>
           </div>
@@ -153,9 +152,8 @@ footer .container {
   <!--Footer-->
   <footer class="site-footer">
         <div class="container">
-            <span class="display-1">Read<i>it</i></span>
-            <span class="display-6">Read<i>it</i> is a blogging site. You can write your articles in mardown</span>
-            <span class="display-6">Copyright &copy; All rights reserved</span>
+            <span class="display-2">Read<i>it</i></span>
+            <span class="display-6 mt-3">Copyright &copy; All rights reserved</span>
             <span class="display-6">Designed by Abhimanyu with &hearts;</span>
             <div class="social-links mt-4">
                 <ul class="social-icons">

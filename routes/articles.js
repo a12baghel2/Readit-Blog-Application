@@ -34,11 +34,12 @@ route.get('/:slug' , async (req,res) => {
     if(article == null) res.redirect('/');
     let name;
     try {
-      name = req.user.name;
+      name = req.user.username;
+      res.render("articles/show", { article: article, name: name });
     } catch (e) {
       name = "Guest";
+      res.render("articles/show", { article: article, name: name });
     }
-    res.render('articles/show', {article: article, name : name })
 });
 
 // Default route
