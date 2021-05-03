@@ -3,7 +3,7 @@ const port = process.env.PORT || 5000;
 // Imports
 const  express = require('express');
 const mongoose = require('mongoose');
-const passport = require('passport')
+const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
 const methodOverride = require("method-override");
