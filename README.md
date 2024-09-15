@@ -28,3 +28,5 @@ The backend is written in **Express** and the database used is **mongoDB**. **Mo
    npm i
    npm start
    ```
+
+> view [Hosted](https://readit-blog-application.vercel.app/)
