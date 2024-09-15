@@ -79,6 +79,7 @@ app.get('/', async (req,res) => {
         //console.log("cannot set this...")
     }
     //console.log(name);
+    // console.log(articles);
     res.render('articles/index', { articles: articles, name : name } );
 });
 

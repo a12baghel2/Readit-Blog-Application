@@ -80,7 +80,7 @@ header {
   width: 100%;
   -webkit-transform-style: inherit;
           transform-style: inherit;
-  background: url("https://source.unsplash.com/zaBz9pdGBGA/1366x768") top center;
+  background: url('https://picsum.photos/1366/768') top center;
   background-attachment: fixed;
   background-size: cover;
   color: white;
@@ -523,7 +523,7 @@ footer .container {
         <% articles.forEach(article => {%>
             <div class="blog-card">
             <div class="meta">
-                <div class="photo" style="background-image: url(https://source.unsplash.com/random);"></div>
+                <div class="photo" style="background-image: url(https://picsum.photos/1300);"></div>
                 <ul class="details">
                     <li class="author"><i class="fas fa-user"></i> <a href="#"><%= article.createdBy %></a></li>
                     <li class="date"><%= article.createdAt.toLocaleDateString() %></li>
