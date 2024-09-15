@@ -7,6 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
 const methodOverride = require("method-override");
+const path = require('path');
 
 // Local Imports
 const Article = require('./models/articles');
@@ -55,6 +56,8 @@ mongoose.connect(process.env.DB_CONNECTION, {
 });
 
 // set template view engine
+console.log(__dirname)
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
@@ -80,7 +83,7 @@ app.get('/', async (req,res) => {
     }
     //console.log(name);
     // console.log(articles);
-    res.render('articles/index.ejs', { articles: articles, name : name } );
+    res.render('articles/index', { articles: articles, name : name } );
 });
 
 // Simple test route
