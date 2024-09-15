@@ -30,6 +30,6 @@
     "slugify": "^1.4.6"
   },
   "engines": {
-    "node": "12.x"
+    "node": "20.x"
   }
 }
