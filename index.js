@@ -80,7 +80,7 @@ app.get('/', async (req,res) => {
     }
     //console.log(name);
     // console.log(articles);
-    res.render('articles/index', { articles: articles, name : name } );
+    res.render('articles/index.ejs', { articles: articles, name : name } );
 });
 
 // Simple test route
