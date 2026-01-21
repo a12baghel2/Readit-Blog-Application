@@ -17,14 +17,14 @@ const route = express.Router();
 
 // Route to add new article
 route.get('/new', ensureAuthenticated,(req,res) => {
-    let name = req.user.name;
+    let name = req.user.username;
     res.render('articles/new', { article: new Article(), name : name })
 });
 
 // Route to edit specific article
 route.get('/edit/:id', ensureAuthenticated , async (req, res) =>{
     const article = await Article.findById(req.params.id);
-    let name = req.user.name;
+    let name = req.user.username;
     res.render('articles/edit' , {article: article, name: name});
 });
 
@@ -43,13 +43,13 @@ route.get('/:slug' , async (req,res) => {
 });
 
 // Default route
-route.post('/', async (req, res, next) => {
+route.post('/', ensureAuthenticated, async (req, res, next) => {
     req.article = new Article();
     next();
 }, saveArticleAndRedirect('new'));
 
 // Route to update edited specific article
-route.put('/:id' , async (req,res, next) =>{
+route.put('/:id' , ensureAuthenticated, async (req,res, next) =>{
     req.article = await Article.findById(req.params.id);
     next();
 }, saveArticleAndRedirect('edit'));
@@ -76,7 +76,7 @@ function saveArticleAndRedirect(path){
             res.redirect(`/articles/${article.slug}`);
         } catch(e){
             console.log(e);
-            res.render(`articles/${path}`, { article: article})
+            res.render(`articles/${path}`, { article: article, name: req.user.username})
         }
     }
 }
