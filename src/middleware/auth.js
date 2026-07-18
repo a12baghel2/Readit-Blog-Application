@@ -1,6 +1,6 @@
 module.exports = {
     // Ensure user is authenticated in order to view the content
-    ensureAuthenticated: (req,res,next) => {
+    ensureAuthenticated: (req, res, next) => {
         if (req.isAuthenticated()) {
             return next();
         }
@@ -8,10 +8,10 @@ module.exports = {
         res.redirect("/user/login");
     },
     // Redirecting user to the login page if it is not logged-in
-    forwardAuthenticated : (req,res,next) => {
-        if (!req.isAuthenticated()){
+    forwardAuthenticated: (req, res, next) => {
+        if (!req.isAuthenticated()) {
             return next();
         }
         res.redirect('/');
     }
-}
+};

@@ -1,0 +1,14 @@
+// Imports
+const express = require('express');
+const Article = require('../models/Article');
+const { ensureAuthenticated } = require('../middleware/auth');
+
+const route = express.Router();
+
+// User profile route
+route.get('/:name', ensureAuthenticated, async (req, res) => {
+    const articles = await Article.find({ createdBy: req.user.username }).sort({ createdAt: 'desc' });
+    res.render('user/profile', { articles: articles, name: req.params.name });
+});
+
+module.exports = route;
